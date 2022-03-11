@@ -3,23 +3,78 @@
 
  body {
 	margin: 0;
-	padding: 16px;
+	padding: 0;
 	background-color: #111;
 	color: #eee;
 	font-size: 16pt;
 	font-family: monospace;
-}
+    overflow: hidden;
 
-@media screen and (min-width: 800px) {
-    body {
-        font-size: 32pt;
-    }
-}
-
-h1 {
-    font-size: 4rem;
 }
 
 img {
     max-width: 100%;
+}
+
+/* --- Desktop Layout --- */
+.Layout {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: 20vw 80vw;
+    grid-template-rows: 10vh 80vh 10vh;
+}
+
+.Header {
+    grid-column: 1 / span 2;
+    background-color: #f00;
+}
+
+.Nav {
+    background-color: #0f0;
+}
+
+.Content {
+    background-color: #00f;
+    overflow-y: scroll;
+}
+
+.Footer {
+    grid-column: 1 / span 2;
+    background-color: #ff0;
+}
+
+.Trigger {
+    display: none;
+    float: right;
+    font-size: 32pt;
+    font-weight: bold;
+    margin-right: 12px;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.Trigger:hover {
+    opacity: 1.0;
+}
+
+/* --- Mobile Layout --- */
+
+@media screen and (max-width: 800px) {
+    .Nav {
+        display: none;
+        position: absolute;
+        right: 0;
+        width: 50vw;
+        top: 10vh;
+        height: 80vh;
+    }
+
+    .Trigger {
+        display: block;
+    }
+
+    .Content {
+        grid-column: 1 / span 2;
+    }
 }

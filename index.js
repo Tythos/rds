@@ -1,10 +1,19 @@
 /**
  * */
 
- window.addEventListener("load", function(event) {
-	console.log("window loaded:", event);
+window.addEventListener("load", function(event) {
+    function onTriggerClicked(event) {
+        let Nav = window.document.body.querySelector(".Nav");
+        if (Nav.style.display == "block") {
+            // hide
+            Nav.style.display = "none";
+        } else {
+            // show
+            Nav.style.display = "block";
+        }
+    }
 
-	let h1 = window.document.createElement("h1");
-	h1.textContent = "Responsive Design Sandbox";
-	window.document.body.appendChild(h1);
+	console.log("window loaded:", event);
+    let Trigger = window.document.body.querySelector(".Trigger");
+    Trigger.addEventListener("click", onTriggerClicked);
 });
